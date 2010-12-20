@@ -28,5 +28,17 @@ class TestTasty < Test::Unit::TestCase
     tasty.expects(:headers).at_least_once
     
     tasty.set_http_headers({'Accept' => 'application/xml'})
-  end  
+  end
+  
+  def test_can_retrieve_all_posts
+    FakeWeb.register_uri(:get, 
+                         'https://username:password@api.del.icio.us/v1/posts/all?', 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'delicious_posts_all_response.xml'), 
+                         :content_type => "application/xml")
+                         
+    tasty = Tasty.new('username', 'password')
+    tasty_response = tasty.get('posts/all')
+    
+    assert_equal 2, tasty_response['posts']['post'].size
+  end
 end
