@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/tasty.rb",
+    "tasty.gemspec",
     "test/fakeweb/delicious_posts_add_response.xml",
     "test/fakeweb/delicious_posts_all_response.xml",
     "test/helper.rb",
