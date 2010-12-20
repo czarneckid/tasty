@@ -9,6 +9,8 @@ GEM
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
+    mocha (0.9.10)
+      rake
     rake (0.8.7)
     rcov (0.8.1.2.0)
 
@@ -19,4 +21,5 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   httparty
   jeweler (~> 1.5.1)
+  mocha
   rcov

@@ -11,4 +11,8 @@ group :development do
   gem "rcov", ">= 0"
 end
 
+group :test do
+	gem 'mocha'
+end
+
 gem 'httparty'
