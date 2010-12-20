@@ -10,7 +10,7 @@ class Tasty
   
   headers(DEFAULT_HEADERS)
   
-  DELICIOUS_API_URL = 'https://api.del.icio.us/v1'
+  DELICIOUS_API_URL = 'https://api.del.icio.us/v1/'
   
   attr_accessor :delicious_api_url
   attr_accessor :username
@@ -31,5 +31,23 @@ class Tasty
     http_headers.merge!(DEFAULT_HEADERS)
     headers(http_headers)
   end
+
+  # Call del.icio.us using a particular API method, api_method. The options hash is where you can add any parameters appropriate for the API call.
+  def get(api_method, options = {})
+    query = {}
+    query.merge!(authorization_hash)
+    query.merge!({:query => options})
+          
+    self.class.get(@delicious_api_url + api_method, query)
+  end
   
+  # Post to del.icio.us using a particular API method, api_method. The parameters hash is where you add all the required parameters appropriate for the API call.
+  def post(api_method, parameters = {}) 
+  end
+  
+  private
+  
+  def authorization_hash
+    {:basic_auth => {:username => @username, :password => @password}}
+  end
 end

@@ -13,6 +13,7 @@ end
 
 group :test do
 	gem 'mocha'
+	gem 'fakeweb'
 end
 
 gem 'httparty'

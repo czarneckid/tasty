@@ -1,7 +1,16 @@
 require 'helper'
 require 'mocha'
+require 'fakeweb'
 
 class TestTasty < Test::Unit::TestCase
+  def setup
+    FakeWeb.allow_net_connect = false
+  end
+  
+  def teardown
+    FakeWeb.allow_net_connect = true
+  end
+
   def test_version_is_current
     assert_equal '1.0.0', Tasty::VERSION
   end
@@ -19,6 +28,5 @@ class TestTasty < Test::Unit::TestCase
     tasty.expects(:headers).at_least_once
     
     tasty.set_http_headers({'Accept' => 'application/xml'})
-  end
-  
+  end  
 end
