@@ -1,6 +1,25 @@
 = tasty
 
-Description goes here.
+Ruby gem for interacting with the del.icio.us API
+
+* http://www.delicious.com/help/api/
+
+== Requirements
+
+* HTTParty
+* FakeWeb (testing)
+* Mocha (testing)
+
+== Install
+
+* sudo gem install tasty
+
+== Example
+
+  >> require 'tasty'
+  => true
+  >> tasty = Tasty.new('delicious_username', 'delicious_password')
+  => #<Tasty:0x101868d80 @delicious_api_url="https://api.del.icio.us/v1/", @password="delicious_password", @username="delicious_username">
 
 == Contributing to tasty
  

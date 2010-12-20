@@ -42,7 +42,12 @@ class Tasty
   end
   
   # Post to del.icio.us using a particular API method, api_method. The parameters hash is where you add all the required parameters appropriate for the API call.
-  def post(api_method, parameters = {}) 
+  def post(api_method, options = {}) 
+    query = {}
+    query.merge!(authorization_hash)
+    query.merge!({:body => options})
+              
+    self.class.post(@delicious_api_url + api_method, query)    
   end
   
   private

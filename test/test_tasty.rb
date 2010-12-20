@@ -41,4 +41,16 @@ class TestTasty < Test::Unit::TestCase
     
     assert_equal 2, tasty_response['posts']['post'].size
   end
+  
+  def test_can_add_post
+    FakeWeb.register_uri(:post, 
+                         'https://username:password@api.del.icio.us/v1/posts/add?', 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'delicious_posts_add_response.xml'), 
+                         :content_type => "application/xml")
+    
+    tasty = Tasty.new('username', 'password')
+    tasty_response = tasty.post('posts/add', :url => 'http://www.google.com', :description => 'The best search engine')
+    
+    assert_equal 'done', tasty_response['result']['code']
+  end
 end
