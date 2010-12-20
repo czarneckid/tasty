@@ -12,8 +12,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "yummy"
-  gem.homepage = "http://github.com/czarneckid/yummy"
+  gem.name = "tasty"
+  gem.homepage = "http://github.com/czarneckid/tasty"
   gem.license = "MIT"
   gem.summary = %Q{Ruby library for interacting with del.icio.us}
   gem.description = %Q{Ruby library for interacting with del.icio.us}
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "yummy #{version}"
+  rdoc.title = "tasty #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
