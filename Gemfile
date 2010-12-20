@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source :rubygems
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
@@ -10,3 +10,5 @@ group :development do
   gem "jeweler", "~> 1.5.1"
   gem "rcov", ">= 0"
 end
+
+gem 'httparty'
