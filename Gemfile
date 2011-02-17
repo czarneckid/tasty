@@ -16,4 +16,4 @@ group :test do
 	gem 'fakeweb'
 end
 
-gem 'httparty'
+gem 'httparty', "~> 0.6.1"

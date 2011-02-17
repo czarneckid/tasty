@@ -3,7 +3,7 @@ require 'httparty'
 class Tasty
   include HTTParty
   
-  VERSION = '1.0.0'.freeze
+  VERSION = '1.0.1'.freeze
   DEFAULT_HEADERS = {
     'User-Agent' => "tasty gem #{VERSION}"
   }
@@ -30,6 +30,10 @@ class Tasty
   def set_http_headers(http_headers = {})
     http_headers.merge!(DEFAULT_HEADERS)
     headers(http_headers)
+  end
+
+  def set_timeout(timeout)
+    default_timeout(timeout)
   end
 
   # Call del.icio.us using a particular API method, api_method. The options hash is where you can add any parameters appropriate for the API call.

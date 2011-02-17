@@ -21,6 +21,12 @@ Ruby gem for interacting with the del.icio.us API
   >> tasty = Tasty.new('delicious_username', 'delicious_password')
   => #<Tasty:0x101868d80 @delicious_api_url="https://api.del.icio.us/v1/", @password="delicious_password", @username="delicious_username">
 
+== Changelog
+
+=== 1.0.1
+
+* Added set_timeout method to set timeout for HTTP requests
+
 == Contributing to tasty
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
@@ -33,6 +39,6 @@ Ruby gem for interacting with the del.icio.us API
 
 == Copyright
 
-Copyright (c) 2010 David Czarnecki. See LICENSE.txt for
+Copyright (c) 2010-2011 David Czarnecki. See LICENSE.txt for
 further details.
 

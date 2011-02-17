@@ -12,7 +12,7 @@ class TestTasty < Test::Unit::TestCase
   end
 
   def test_version_is_current
-    assert_equal '1.0.0', Tasty::VERSION
+    assert_equal '1.0.1', Tasty::VERSION
   end
   
   def test_can_initialize_new_tasty_class
@@ -53,4 +53,11 @@ class TestTasty < Test::Unit::TestCase
     
     assert_equal 'done', tasty_response['result']['code']
   end
+  
+  def test_can_set_timeout
+    tasty = Tasty.new('username', 'password')
+    tasty.expects(:default_timeout).at_least_once
+    
+    tasty.set_timeout(5)
+  end  
 end
