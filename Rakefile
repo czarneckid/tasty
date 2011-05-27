@@ -54,5 +54,5 @@ task :default => :test_rubies
 
 desc "Runs tests on Ruby 1.8.7 and 1.9.2"
 task :test_rubies do
-  system "rvm 1.8.7@tasty,1.9.2@tasty rake test"
+  system "rvm 1.8.7@tasty_gem,1.9.2@tasty_gem rake test"
 end
