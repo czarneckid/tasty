@@ -40,8 +40,6 @@ Rcov::RcovTask.new do |test|
   test.verbose = true
 end
 
-task :default => :test
-
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
@@ -50,4 +48,11 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "tasty #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+task :default => :test_rubies
+
+desc "Runs tests on Ruby 1.8.7 and 1.9.2"
+task :test_rubies do
+  system "rvm 1.8.7@tasty,1.9.2@tasty rake test"
 end
