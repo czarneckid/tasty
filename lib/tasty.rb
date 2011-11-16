@@ -1,9 +1,9 @@
 require 'httparty'
+require 'tasty-version'
 
 class Tasty
   include HTTParty
   
-  VERSION = '1.0.1'.freeze
   DEFAULT_HEADERS = {
     'User-Agent' => "tasty gem #{VERSION}"
   }
