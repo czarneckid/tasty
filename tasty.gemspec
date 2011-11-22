@@ -5,7 +5,7 @@ require 'tasty-version'
 
 Gem::Specification.new do |s|
   s.name        = "tasty"
-  s.version     = Tasty::VERSION
+  s.version     = Tasty::VERSION.dup
   s.authors     = ["David Czarnecki"]
   s.email       = ["czarneckid@acm.org"]
   s.homepage    = "https://github.com/czarneckid/tasty"
