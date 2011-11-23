@@ -1,5 +1,5 @@
 require 'httparty'
-require 'tasty-version'
+require 'version'
 
 class Tasty
   include HTTParty
