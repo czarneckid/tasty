@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name        = "tasty"
   s.version     = Tasty::VERSION.dup
   s.authors     = ["David Czarnecki"]
-  s.email       = ["czarneckid@acm.org"]
+  s.email       = ["me@davidczarnecki.com"]
   s.homepage    = "https://github.com/czarneckid/tasty"
   s.summary     = %q{Ruby library for interacting with del.icio.us}
   s.description = %q{Ruby library for interacting with del.icio.us}
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency('rake')
-  s.add_development_dependency('mocha')
+  s.add_development_dependency('rspec')
   s.add_development_dependency('fakeweb')
   
   s.add_dependency('httparty')

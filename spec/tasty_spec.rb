@@ -1,36 +1,33 @@
-require 'test_helper'
-require 'mocha'
-require 'fakeweb'
+require 'spec_helper'
 
-class TestTasty < Test::Unit::TestCase
-  def setup
-    FakeWeb.allow_net_connect = false
-  end
-  
-  def teardown
-    FakeWeb.allow_net_connect = true
+describe Tasty do
+  it 'should be the correct version' do
+    Tasty::VERSION.should == '1.0.1'
   end
 
-  def test_version_is_current
-    assert_equal '1.0.1', Tasty::VERSION
-  end
-  
-  def test_can_initialize_new_tasty_class
+  it 'should have the correct initialization parameters' do
     tasty = Tasty.new('username', 'password')
     
-    assert_equal Tasty::DELICIOUS_API_URL, tasty.delicious_api_url
-    assert_equal 'username', tasty.username
-    assert_equal 'password', tasty.password
+    tasty.delicious_api_url.should == Tasty::DELICIOUS_API_URL
+    tasty.username.should == 'username'
+    tasty.password.should == 'password'
   end
-  
-  def test_can_set_http_headers
+
+  it 'should allow you to set HTTP headers' do
     tasty = Tasty.new('username', 'password')
-    tasty.expects(:headers).at_least_once
+    tasty.should_receive(:set_http_headers).with({'Accept' => 'application/xml'})
     
     tasty.set_http_headers({'Accept' => 'application/xml'})
   end
-  
-  def test_can_retrieve_all_posts
+
+  it 'should allow you to set an HTTP timeout' do
+    tasty = Tasty.new('username', 'password')
+    tasty.should_receive(:default_timeout).with(5)
+    
+    tasty.set_timeout(5)
+  end
+
+  it 'should allow you to retrieve all posts' do
     FakeWeb.register_uri(:get, 
                          'https://username:password@api.del.icio.us/v1/posts/all?', 
                          :body => File.join(File.dirname(__FILE__), 'fakeweb', 'delicious_posts_all_response.xml'), 
@@ -39,10 +36,10 @@ class TestTasty < Test::Unit::TestCase
     tasty = Tasty.new('username', 'password')
     tasty_response = tasty.get('posts/all')
     
-    assert_equal 2, tasty_response['posts']['post'].size
+    tasty_response['posts']['post'].size.should == 2
   end
-  
-  def test_can_add_post
+
+  it 'should allow you to add a post' do
     FakeWeb.register_uri(:post, 
                          'https://username:password@api.del.icio.us/v1/posts/add?', 
                          :body => File.join(File.dirname(__FILE__), 'fakeweb', 'delicious_posts_add_response.xml'), 
@@ -51,13 +48,6 @@ class TestTasty < Test::Unit::TestCase
     tasty = Tasty.new('username', 'password')
     tasty_response = tasty.post('posts/add', :url => 'http://www.google.com', :description => 'The best search engine')
     
-    assert_equal 'done', tasty_response['result']['code']
+    tasty_response['result']['code'].should == 'done'
   end
-  
-  def test_can_set_timeout
-    tasty = Tasty.new('username', 'password')
-    tasty.expects(:default_timeout).at_least_once
-    
-    tasty.set_timeout(5)
-  end  
 end

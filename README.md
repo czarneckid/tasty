@@ -1,33 +1,32 @@
-= tasty
+# tasty
 
-Ruby gem for interacting with the del.icio.us API
+Ruby gem for interacting with the [del.icio.us API](http://www.delicious.com/help/api/)
 
-* http://www.delicious.com/help/api/
-
-== Requirements
+## Requirements
 
 * HTTParty
 * FakeWeb (testing)
-* Mocha (testing)
 
-== Install
+## Install
 
-* sudo gem install tasty
+`gem install tasty`
 
-== Example
+## Example
 
-  >> require 'tasty'
-  => true
-  >> tasty = Tasty.new('delicious_username', 'delicious_password')
-  => #<Tasty:0x101868d80 @delicious_api_url="https://api.del.icio.us/v1/", @password="delicious_password", @username="delicious_username">
+```ruby
+>> require 'tasty'
+=> true
+>> tasty = Tasty.new('delicious_username', 'delicious_password')
+=> #<Tasty:0x101868d80 @delicious_api_url="https://api.del.icio.us/v1/", @password="delicious_password", @username="delicious_username">
+```
 
-== Changelog
+## Changelog
 
-=== 1.0.1
+### 1.0.1
 
 * Added set_timeout method to set timeout for HTTP requests
 
-== Contributing to tasty
+## Contributing to tasty
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -37,6 +36,6 @@ Ruby gem for interacting with the del.icio.us API
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2010-2012 David Czarnecki. See LICENSE.txt for further details.
