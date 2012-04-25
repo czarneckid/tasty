@@ -14,9 +14,9 @@ Ruby gem for interacting with the [del.icio.us API](http://www.delicious.com/hel
 ## Example
 
 ```ruby
->> require 'tasty'
+require 'tasty'
 => true
->> tasty = Tasty.new('delicious_username', 'delicious_password')
+tasty = Tasty.new('delicious_username', 'delicious_password')
 => #<Tasty:0x101868d80 @delicious_api_url="https://api.del.icio.us/v1/", @password="delicious_password", @username="delicious_username">
 ```
 
