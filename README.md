@@ -38,4 +38,4 @@ tasty = Tasty.new('delicious_username', 'delicious_password')
 
 ## Copyright
 
-Copyright (c) 2010-2012 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2010-2013 David Czarnecki. See LICENSE.txt for further details.
