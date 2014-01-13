@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/czarneckid/tasty"
   s.summary     = %q{Ruby library for interacting with del.icio.us}
   s.description = %q{Ruby library for interacting with del.icio.us}
+  s.license     = 'MIT'
 
   s.rubyforge_project = "tasty"
 
