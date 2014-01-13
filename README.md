@@ -27,7 +27,7 @@ tasty = Tasty.new('delicious_username', 'delicious_password')
 * Added set_timeout method to set timeout for HTTP requests
 
 ## Contributing to tasty
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -38,4 +38,4 @@ tasty = Tasty.new('delicious_username', 'delicious_password')
 
 ## Copyright
 
-Copyright (c) 2010-2012 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2010-2014 David Czarnecki. See LICENSE.txt for further details.
